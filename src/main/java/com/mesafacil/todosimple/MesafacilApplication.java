@@ -1,13 +1,13 @@
-package com.lucasangelo.todosimple;
+package com.mesafacil.todosimple;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TodosimpleApplication {
+public class MesafacilApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TodosimpleApplication.class, args);
+		SpringApplication.run(MesafacilApplication.class, args);
 	}
 
 }

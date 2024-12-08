@@ -8,11 +8,11 @@
 		<version>3.3.6</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.lucasangelo</groupId>
-	<artifactId>todosimple</artifactId>
+	<groupId>com.mesafacil</groupId>
+	<artifactId>mesafacil</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>todosimple</name>
-	<description>Spring Boot API for To Do App</description>
+	<name>mesafacil</name>
+	<description>Mesa Facil - System</description>
 	<url/>
 	<licenses>
 		<license/>
