@@ -8,11 +8,11 @@
 		<version>3.3.6</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.mesafacil</groupId>
+	<groupId>com.projetolp2</groupId>
 	<artifactId>mesafacil</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>mesafacil</name>
-	<description>Mesa Facil - System</description>
+	<description>Projeto LP2 - Mesa Facil</description>
 	<url/>
 	<licenses>
 		<license/>
