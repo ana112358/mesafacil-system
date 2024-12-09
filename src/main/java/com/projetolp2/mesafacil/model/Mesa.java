@@ -1,4 +1,4 @@
-package com.projetolp2.mesafacil.models;
+package com.projetolp2.mesafacil.model;
 
 import java.time.LocalDateTime;
 
@@ -37,4 +37,15 @@ public class Mesa {
 
     @Column(name = "atualizado_em", columnDefinition = "datetime")
     private LocalDateTime atualizado_em;
+
+    public Mesa() {
+    }
+
+    public Mesa(Boolean disponivel, Boolean vip, Integer quantidade_cadeiras) {
+        this.disponivel = disponivel;
+        this.vip = vip;
+        this.quantidade_cadeiras = quantidade_cadeiras;
+        this.criado_em = LocalDateTime.now();
+        this.atualizado_em = LocalDateTime.now();
+    }
 }
