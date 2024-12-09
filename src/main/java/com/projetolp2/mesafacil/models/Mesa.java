@@ -1,12 +1,14 @@
 package com.projetolp2.mesafacil.models;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -37,4 +39,7 @@ public class Mesa {
 
     @Column(name = "atualizado_em", columnDefinition = "datetime")
     private LocalDateTime atualizado_em;
+
+    @OneToMany(mappedBy = "mesa")
+    private List<Reserva> reservas;
 }
