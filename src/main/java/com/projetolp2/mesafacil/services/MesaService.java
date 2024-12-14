@@ -20,7 +20,7 @@ public class MesaService {
         return mesaRepository.findAll();
     }
 
-    public Optional<Mesa> getMesaById(Long id) {
+    public Optional<Mesa> getMesaById(Integer id) {
         return mesaRepository.findById(id);
     }
 
@@ -28,7 +28,7 @@ public class MesaService {
         return mesaRepository.save(mesa);
     }
 
-    public void deleteMesa(Long id) {
+    public void deleteMesa(Integer id) {
         mesaRepository.deleteById(id);
     }
 }

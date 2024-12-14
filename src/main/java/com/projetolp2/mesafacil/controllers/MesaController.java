@@ -26,7 +26,7 @@ public class MesaController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Mesa> getMesaById(@PathVariable Long id) {
+    public ResponseEntity<Mesa> getMesaById(@PathVariable Integer id) {
         return mesaService.getMesaById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
@@ -38,7 +38,7 @@ public class MesaController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteMesa(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteMesa(@PathVariable Integer id) {
         mesaService.deleteMesa(id);
         return ResponseEntity.noContent().build();
     }

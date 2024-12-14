@@ -7,6 +7,6 @@ import com.projetolp2.mesafacil.models.Mesa;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 @Repository
-public interface MesaRepository extends JpaRepository<Mesa, Long> {
-    // Métodos personalizados podem ser adicionados aqui, se necessário
+public interface MesaRepository extends JpaRepository<Mesa, Integer> {
+    
 }

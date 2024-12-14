@@ -21,7 +21,7 @@ public class RestauranteService {
     }
 
     // Buscar restaurante por ID
-    public Optional<Restaurante> buscarPorId(Long id) {
+    public Optional<Restaurante> buscarPorId(Integer id) {
         return restauranteRepository.findById(id);
     }
 
@@ -31,7 +31,7 @@ public class RestauranteService {
     }
 
     // Atualizar restaurante existente
-    public Optional<Restaurante> atualizar(Long id, Restaurante detalhes) {
+    public Optional<Restaurante> atualizar(Integer id, Restaurante detalhes) {
         return restauranteRepository.findById(id).map(restaurante -> {
             restaurante.setNome(detalhes.getNome());
             restaurante.setEmail(detalhes.getEmail());
@@ -44,7 +44,7 @@ public class RestauranteService {
     }
 
     // Deletar restaurante por ID
-    public boolean deletar(Long id) {
+    public boolean deletar(Integer id) {
         return restauranteRepository.findById(id).map(restaurante -> {
             restauranteRepository.delete(restaurante);
             return true;

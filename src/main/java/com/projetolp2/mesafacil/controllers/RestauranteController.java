@@ -25,7 +25,7 @@ public class RestauranteController {
 
     // Método GET para buscar um restaurante por ID
     @GetMapping("/{id}")
-    public ResponseEntity<Restaurante> buscarPorId(@PathVariable Long id) {
+    public ResponseEntity<Restaurante> buscarPorId(@PathVariable Integer id) {
         return restauranteRepository.findById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
@@ -46,7 +46,7 @@ public class RestauranteController {
 
     // Método PUT para atualizar um restaurante existente
     @PutMapping("/{id}")
-    public ResponseEntity<Restaurante> atualizar(@PathVariable Long id, @RequestBody Restaurante detalhes) {
+    public ResponseEntity<Restaurante> atualizar(@PathVariable Integer id, @RequestBody Restaurante detalhes) {
         return restauranteRepository.findById(id).map(restaurante -> {
             restaurante.setNome(detalhes.getNome());
             restaurante.setEmail(detalhes.getEmail());
@@ -60,7 +60,7 @@ public class RestauranteController {
 
     // Método DELETE para remover um restaurante por ID
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletar(@PathVariable Long id) {
+    public ResponseEntity<Void> deletar(@PathVariable Integer id) {
         return restauranteRepository.findById(id).map(restaurante -> {
             restauranteRepository.delete(restaurante);
             return ResponseEntity.ok().<Void>build(); // Garante que o retorno é do tipo ResponseEntity<Void>
