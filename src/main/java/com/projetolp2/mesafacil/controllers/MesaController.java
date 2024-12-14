@@ -1,10 +1,15 @@
 package com.projetolp2.mesafacil.controllers;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import com.projetolp2.mesafacil.models.Mesa;
+import com.projetolp2.mesafacil.models.Mesa.CreateMesa;
+import com.projetolp2.mesafacil.models.Mesa.UpdateMesa;
 import com.projetolp2.mesafacil.services.MesaService;
+
+import jakarta.validation.Valid;
 
 import java.util.List;
 
@@ -30,12 +35,14 @@ public class MesaController {
     }
 
     @PostMapping
-    public Mesa createMesa(@RequestBody Mesa mesa) {
+    @Validated(CreateMesa.class)
+    public Mesa createMesa(@Valid @RequestBody Mesa mesa) {
         return mesaService.createMesa(mesa);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> update(@RequestBody Mesa obj, @PathVariable Integer id) {
+    @Validated(UpdateMesa.class)
+    public ResponseEntity<Void> update(@Valid @RequestBody Mesa obj, @PathVariable Integer id) {
         obj.setId(id);
         mesaService.update(obj);
         return ResponseEntity.noContent().build();

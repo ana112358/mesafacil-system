@@ -10,7 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.projetolp2.mesafacil.models.Reserva;
+import com.projetolp2.mesafacil.models.Reserva.UpdateReserva;
+import com.projetolp2.mesafacil.models.Reserva.CreateReserva;
 import com.projetolp2.mesafacil.services.ReservaService;
+
+import jakarta.validation.Valid;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,7 +37,8 @@ public class ReservaController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> create(@RequestBody Reserva obj) {
+    @Validated(CreateReserva.class)
+    public ResponseEntity<Void> create(@Valid @RequestBody Reserva obj) {
         this.reservaService.create(obj);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}").buildAndExpand(obj.getId()).toUri();
@@ -41,7 +46,8 @@ public class ReservaController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> update(@RequestBody Reserva obj, @PathVariable Integer id) {
+    @Validated(UpdateReserva.class)
+    public ResponseEntity<Void> update(@Valid @RequestBody Reserva obj, @PathVariable Integer id) {
         obj.setId(id);
         this.reservaService.update(obj);
         return ResponseEntity.noContent().build();

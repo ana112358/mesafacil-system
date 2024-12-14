@@ -2,10 +2,15 @@ package com.projetolp2.mesafacil.controllers;
 
 import com.projetolp2.mesafacil.controllers.dto.*;
 import com.projetolp2.mesafacil.models.Restaurante;
+import com.projetolp2.mesafacil.models.Restaurante.CreateRestaurante;
+import com.projetolp2.mesafacil.models.Restaurante.UpdateRestaurante;
 import com.projetolp2.mesafacil.repositories.RestauranteRepository;
+
+import jakarta.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -32,7 +37,8 @@ public class RestauranteController {
     }
 
     @PostMapping
-    public Restaurante criar(@RequestBody RestauranteInputDto restauranteInputDto) {
+    @Validated(CreateRestaurante.class)
+    public Restaurante criar(@Valid @RequestBody RestauranteInputDto restauranteInputDto) {
         Restaurante restaurante = new Restaurante();
         restaurante.setNome(restauranteInputDto.nome());
         restaurante.setEmail(restauranteInputDto.email());
@@ -46,7 +52,8 @@ public class RestauranteController {
 
     // Método PUT para atualizar um restaurante existente
     @PutMapping("/{id}")
-    public ResponseEntity<Restaurante> atualizar(@PathVariable Integer id, @RequestBody Restaurante detalhes) {
+    @Validated(UpdateRestaurante.class)
+    public ResponseEntity<Restaurante> atualizar(@PathVariable Integer id, @Valid @RequestBody Restaurante detalhes) {
         return restauranteRepository.findById(id).map(restaurante -> {
             restaurante.setNome(detalhes.getNome());
             restaurante.setEmail(detalhes.getEmail());
