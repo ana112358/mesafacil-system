@@ -1,0 +1,23 @@
+{
+    "usuarios": [
+      {
+        "id": 1,
+        "nome": "João Silva",
+        "descricao": "Cliente regular",
+        "email": "ana@gmail.com",
+        "senha": "123",
+        "endereco": "Rua das Flores, 123",
+        "telefone": "(84) 98765-4321"
+      },
+      {
+        "id": 2,
+        "nome": "Maria Oliveira",
+        "descricao": "Cliente VIP",
+        "email": "maria.oliveira@exemplo.com",
+        "senha": "senha456",
+        "endereco": "Avenida Central, 456",
+        "telefone": "(84) 91234-5678"
+      }
+    ]
+  }
+  
