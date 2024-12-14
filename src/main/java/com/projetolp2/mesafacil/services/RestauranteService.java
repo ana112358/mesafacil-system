@@ -1,7 +1,8 @@
-package com.projetolp2.mesafacil.service;
+package com.projetolp2.mesafacil.services;
 
 import com.projetolp2.mesafacil.models.Restaurante;
-import com.projetolp2.mesafacil.repository.RestauranteRepository;
+import com.projetolp2.mesafacil.repositories.RestauranteRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

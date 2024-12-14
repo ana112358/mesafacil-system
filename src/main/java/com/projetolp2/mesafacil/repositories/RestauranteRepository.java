@@ -1,4 +1,4 @@
-package com.projetolp2.mesafacil.repository;
+package com.projetolp2.mesafacil.repositories;
 
 import com.projetolp2.mesafacil.models.Restaurante;
 import org.springframework.data.jpa.repository.JpaRepository;

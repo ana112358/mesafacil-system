@@ -44,4 +44,14 @@ public class Mesa {
     @JoinColumn(name = "restaurante_id", nullable = false)
     private Restaurante restaurante;
 
+    public Mesa() {
+    }
+
+    public Mesa(Boolean disponivel, Boolean vip, Integer quantidade_cadeiras) {
+        this.disponivel = disponivel;
+        this.vip = vip;
+        this.quantidade_cadeiras = quantidade_cadeiras;
+        this.criado_em = LocalDateTime.now();
+        this.atualizado_em = LocalDateTime.now();
+    }
 }

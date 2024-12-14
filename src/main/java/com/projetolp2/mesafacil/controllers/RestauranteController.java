@@ -1,8 +1,9 @@
-package com.projetolp2.mesafacil.controller;
-import com.projetolp2.mesafacil.models.Restaurante;
-import com.projetolp2.mesafacil.controller.dto.*;
+package com.projetolp2.mesafacil.controllers;
 
-import com.projetolp2.mesafacil.repository.RestauranteRepository;
+import com.projetolp2.mesafacil.controllers.dto.*;
+import com.projetolp2.mesafacil.models.Restaurante;
+import com.projetolp2.mesafacil.repositories.RestauranteRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -40,11 +41,8 @@ public class RestauranteController {
         restaurante.setTelefone(restauranteInputDto.telefone());
         restaurante.setDescricao(restauranteInputDto.descricao());
 
-
         return restauranteRepository.save(restaurante);
     }
-
-    
 
     // Método PUT para atualizar um restaurante existente
     @PutMapping("/{id}")

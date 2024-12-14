@@ -7,7 +7,6 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-
 @Getter
 @Setter
 @Table(name = "restaurantes")
@@ -36,4 +35,3 @@ public class Restaurante {
     private List<Mesa> mesas = new ArrayList<>();
 
 }
-
