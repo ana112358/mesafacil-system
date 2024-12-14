@@ -25,13 +25,7 @@ public class Reserva {
     @Column(name = "id", unique = true)
     private Integer id;
 
-    @ManyToOne
-    @JoinColumn(name = "id_mesa", nullable = false, updatable = false)
-    private Mesa mesa;
-
-    // private Integer id_cliente;
-
-    @Column(name = "nome_cliente", length = 255 , nullable = false)
+    @Column(name = "nome_cliente", length = 255, nullable = false)
     private String nome_cliente;
 
     @Column(name = "horario_inicio", nullable = false, columnDefinition = "datetime")
@@ -41,8 +35,9 @@ public class Reserva {
     private LocalDateTime horario_final;
 
     @Column(name = "criado_em", nullable = false, columnDefinition = "datetime")
-    private LocalDateTime criado_em;
+    private LocalDateTime criado_em = LocalDateTime.now();
 
-    @Column(name = "atualizado_em", nullable = false, columnDefinition = "datetime")
-    private LocalDateTime atualizado_em;
+    @ManyToOne
+    @JoinColumn(name = "id_mesa", nullable = false, updatable = false)
+    private Mesa mesa;
 }

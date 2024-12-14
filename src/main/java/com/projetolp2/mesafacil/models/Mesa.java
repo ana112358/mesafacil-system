@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -29,38 +30,20 @@ public class Mesa {
     @Column(name = "id", unique = true)
     private Integer id;
 
-    @Column(name = "disponivel")
-    private Boolean disponivel = true;
+    @Column(name = "numeracao", nullable = false)
+    private Integer numeracao;
 
-    @Column(name = "vip")
-    private Boolean vip = false;
-
-    @Column(name = "quantidade_cadeiras")
+    @Column(name = "quantidade_cadeiras", nullable = false)
     private Integer quantidade_cadeiras;
 
     @Column(name = "criado_em", columnDefinition = "datetime")
     private LocalDateTime criado_em;
 
-    @Column(name = "atualizado_em", columnDefinition = "datetime")
-    private LocalDateTime atualizado_em;
-
     @ManyToOne
-    @JoinColumn(name = "restaurante_id", nullable = false)
+    @JoinColumn(name = "id_restaurante", nullable = false)
     private Restaurante restaurante;
 
     @OneToMany(mappedBy = "mesa")
     @JsonIgnore
     private List<Reserva> reservas;
-
-    public Mesa() {
-    }
-
-    public Mesa(Boolean disponivel, Boolean vip, Integer quantidade_cadeiras) {
-        this.disponivel = disponivel;
-        this.vip = vip;
-        this.quantidade_cadeiras = quantidade_cadeiras;
-        this.criado_em = LocalDateTime.now();
-        this.atualizado_em = LocalDateTime.now();
-    }
-
 }

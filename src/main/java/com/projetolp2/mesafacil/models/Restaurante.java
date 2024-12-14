@@ -1,9 +1,20 @@
 package com.projetolp2.mesafacil.models;
 
-import java.util.ArrayList;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
-import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.Table;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Column;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.CascadeType;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,26 +23,35 @@ import lombok.Setter;
 @Table(name = "restaurantes")
 @Entity
 public class Restaurante {
+    public static final String TABLE_NAME = "restaurantes";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "id", unique = true)
+    private Integer id;
 
+    @Column(name = "nome", length = 255, nullable = false)
     private String nome;
 
-    @Column(unique = true)
-    private String email;
-
-    private String senha;
-
-    private String endereco;
-
-    private String telefone;
-
-    @Column(length = 500)
+    @Column(name = "descricao", length = 500)
     private String descricao;
 
-    @OneToMany(mappedBy = "restaurante", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Mesa> mesas = new ArrayList<>();
+    @Column(name = "email", length = 255, nullable = false)
+    private String email;
 
+    @Column(name = "senha", length = 255, nullable = false)
+    private String senha;
+
+    @Column(name = "endereco", length = 255, nullable = false)
+    private String endereco;
+
+    @Column(name = "telefone", length = 255, nullable = false)
+    private String telefone;
+
+    @Column(name = "criado_em", columnDefinition = "datetime")
+    private LocalDateTime criado_em = LocalDateTime.now();
+
+    @OneToMany(mappedBy = "restaurante")
+    @JsonIgnore
+    private List<Mesa> mesas;
 }
