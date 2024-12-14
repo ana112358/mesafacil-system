@@ -49,7 +49,7 @@ public class Restaurante {
     @Column(name = "criado_em", columnDefinition = "datetime")
     private LocalDateTime criado_em = LocalDateTime.now();
 
-    @OneToMany(mappedBy = "restaurante")
+    @OneToMany(mappedBy = "restaurante", orphanRemoval = true)
     @JsonIgnore
     private List<Mesa> mesas;
 }

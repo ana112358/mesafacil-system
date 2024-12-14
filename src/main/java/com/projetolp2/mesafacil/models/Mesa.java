@@ -1,5 +1,6 @@
 package com.projetolp2.mesafacil.models;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -36,13 +37,13 @@ public class Mesa {
     private Integer quantidade_cadeiras;
 
     @Column(name = "criado_em", columnDefinition = "datetime")
-    private LocalDateTime criado_em;
+    private LocalDateTime criado_em = LocalDateTime.now();
 
     @ManyToOne
     @JoinColumn(name = "id_restaurante", nullable = false)
     private Restaurante restaurante;
 
-    @OneToMany(mappedBy = "mesa")
+    @OneToMany(mappedBy = "mesa", orphanRemoval = true)
     @JsonIgnore
     private List<Reserva> reservas;
 }

@@ -27,16 +27,16 @@ public class ReservaController {
     private ReservaService reservaService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<Reserva> findById(@PathVariable Integer id){
+    public ResponseEntity<Reserva> findById(@PathVariable Integer id) {
         Reserva obj = this.reservaService.findById(id);
         return ResponseEntity.ok().body(obj);
     }
-    
+
     @PostMapping
     public ResponseEntity<Void> create(@RequestBody Reserva obj) {
         this.reservaService.create(obj);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
-        .path("/{id}").buildAndExpand(obj.getId()).toUri();
+                .path("/{id}").buildAndExpand(obj.getId()).toUri();
         return ResponseEntity.created(uri).build();
     }
 
@@ -48,7 +48,7 @@ public class ReservaController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Integer id){
+    public ResponseEntity<Void> delete(@PathVariable Integer id) {
         this.reservaService.delete(id);
         return ResponseEntity.noContent().build();
     }

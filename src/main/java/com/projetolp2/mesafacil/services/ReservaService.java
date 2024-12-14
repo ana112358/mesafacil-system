@@ -15,21 +15,20 @@ public class ReservaService {
     @Autowired
     private ReservaRepository reservaRepository;
 
-    public Reserva findById(Integer id){
+    public Reserva findById(Integer id) {
         Optional<Reserva> reserva = this.reservaRepository.findById(id);
-        return reserva.orElseThrow(()-> new RuntimeException(
-            "Reserva não encontrada. ID: "+id+", Tipo: "+Reserva.class.getName()
-        ));
+        return reserva.orElseThrow(() -> new RuntimeException(
+                "Reserva não encontrada. ID: " + id + ", Tipo: " + Reserva.class.getName()));
     }
 
     @Transactional
-    public Reserva create(Reserva obj){
+    public Reserva create(Reserva obj) {
         obj.setId(null);
         obj = this.reservaRepository.save(obj);
         return obj;
     }
 
-    public Reserva update(Reserva obj){
+    public Reserva update(Reserva obj) {
         Reserva newObj = findById(obj.getId());
         newObj.setNome_cliente(obj.getNome_cliente());
         newObj.setHorario_inicio(obj.getHorario_inicio());
@@ -37,7 +36,7 @@ public class ReservaService {
         return this.reservaRepository.save(newObj);
     }
 
-    public void delete(Integer id){
+    public void delete(Integer id) {
         findById(id);
         try {
             this.reservaRepository.deleteById(id);
