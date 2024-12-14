@@ -7,8 +7,6 @@ import com.projetolp2.mesafacil.models.Mesa;
 import com.projetolp2.mesafacil.services.MesaService;
 
 import java.util.List;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController
 @RequestMapping("/mesas")
@@ -27,14 +25,20 @@ public class MesaController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Mesa> getMesaById(@PathVariable Integer id) {
-        return mesaService.getMesaById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+        Mesa obj = mesaService.getMesaById(id);
+        return ResponseEntity.ok().body(obj);
     }
 
     @PostMapping
     public Mesa createMesa(@RequestBody Mesa mesa) {
         return mesaService.createMesa(mesa);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Void> update(@RequestBody Mesa obj, @PathVariable Integer id) {
+        obj.setId(id);
+        mesaService.update(obj);
+        return ResponseEntity.noContent().build();
     }
 
     @DeleteMapping("/{id}")

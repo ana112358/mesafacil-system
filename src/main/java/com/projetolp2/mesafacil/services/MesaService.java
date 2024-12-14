@@ -20,12 +20,21 @@ public class MesaService {
         return mesaRepository.findAll();
     }
 
-    public Optional<Mesa> getMesaById(Integer id) {
-        return mesaRepository.findById(id);
+    public Mesa getMesaById(Integer id) {
+        Optional<Mesa> mesa = mesaRepository.findById(id);
+        return mesa.orElseThrow(() -> new RuntimeException(
+                "Reserva não encontrada. ID: " + id + ", Tipo: " + Mesa.class.getName()));
     }
 
     public Mesa createMesa(Mesa mesa) {
         return mesaRepository.save(mesa);
+    }
+
+    public Mesa update(Mesa obj) {
+        Mesa newObj = getMesaById(obj.getId());
+        newObj.setNumeracao(obj.getNumeracao());
+        newObj.setQuantidade_cadeiras(obj.getQuantidade_cadeiras());
+        return mesaRepository.save(newObj);
     }
 
     public void deleteMesa(Integer id) {
