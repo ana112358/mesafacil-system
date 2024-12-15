@@ -1,19 +1,21 @@
 package com.projetolp2.mesafacil.services;
 
 import java.util.Optional;
-
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.projetolp2.mesafacil.models.Reserva;
 import com.projetolp2.mesafacil.repositories.ReservaRepository;
-
 import jakarta.transaction.Transactional;
 
 @Service
 public class ReservaService {
     @Autowired
     private ReservaRepository reservaRepository;
+
+    public List<Reserva> findAll() {
+        return reservaRepository.findAll();
+    }
 
     public Reserva findById(Integer id) {
         Optional<Reserva> reserva = this.reservaRepository.findById(id);
