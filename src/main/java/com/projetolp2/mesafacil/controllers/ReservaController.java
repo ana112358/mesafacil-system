@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
-@RequestMapping("/reserva")
+@RequestMapping("/reservas")
 @Validated
 public class ReservaController {
     @Autowired
