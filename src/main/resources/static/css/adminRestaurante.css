@@ -113,3 +113,93 @@ header {
 #salvarBtn:hover {
     background-color: #45a049;
 }
+
+/* Estilos específicos para o formulário de cadastro da mesa */
+#conteudoCadastroMesa {
+    margin: 20px auto;
+    max-width: 800px; /* Largura máxima do formulário */
+    padding: 20px;
+    background-color: #fff; /* Cor de fundo */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#conteudoCadastroMesa h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333; /* Cor do título */
+    font-size: 24px;
+}
+
+#formCadastroMesa {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+#conteudoCadastroMesa label {
+    font-weight: bold;
+    color: #555;
+    display: block;
+    margin-bottom: 5px;
+}
+
+#conteudoCadastroMesa input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #f9f9f9; /* Fundo claro para os inputs */
+}
+
+#conteudoCadastroMesa input[type="number"] {
+    -moz-appearance: textfield; /* Remove setas de número em navegadores */
+    appearance: textfield;
+}
+
+#conteudoCadastroMesa input[type="number"]:focus {
+    outline: 2px solid #F05033; /* Cor do contorno ao focar */
+}
+
+#salvarMesaBtn {
+    background-color: #4CAF50; /* Cor de fundo do botão */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    align-self: center; /* Alinha o botão no centro */
+}
+
+#salvarMesaBtn:hover {
+    background-color: #45a049; /* Cor do botão ao passar o mouse */
+}
+
+/* Estilo para os inputs de número e as bordas */
+#conteudoCadastroMesa input:focus {
+    border: 1px solid #F05033;
+}
+
+#conteudoCadastroMesa .form-row {
+    gap: 15px; /* Ajusta o espaçamento entre as colunas */
+}
+
+#conteudoCadastroMesa .form-group {
+    flex: 1;
+    min-width: 180px;
+}
