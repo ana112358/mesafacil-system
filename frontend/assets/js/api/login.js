@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // Carregar o arquivo JSON simulando os dados dos usuários
         console.log(emailInput);
     
-        fetch("/frontend/assets/datas/usuarios.json")
+    fetch("/frontend/assets/datas/usuarios.json")
     .then(response => {
         if (!response.ok) {
             throw new Error(`Erro ao carregar o arquivo: ${response.status}`);
@@ -45,6 +45,8 @@ document.addEventListener("DOMContentLoaded", function() {
             
             // Redireciona para a página de administração do restaurante
             window.location.href = "/frontend/pages/adminRestaurante.html";
+            
+            localStorage.setItem('usuarioLogado', JSON.stringify(usuario));
         } else {
             alert('Credenciais inválidas!');
         }
