@@ -58,7 +58,6 @@ public class Restaurante {
     private String email;
  
     @Column(name = "senha", length = 255, nullable = false)
-    @JsonProperty(access = Access.WRITE_ONLY)
     @NotNull(groups = {CreateRestaurante.class, UpdateRestaurante.class})
     @NotEmpty(groups = {CreateRestaurante.class, UpdateRestaurante.class})
     @Size(groups = {CreateRestaurante.class, UpdateRestaurante.class}, min = 8, max = 255)

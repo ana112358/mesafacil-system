@@ -4,6 +4,7 @@ public record RestauranteOutputDto(
                 Long id,
                 String nome,
                 String email,
+                String senha,
                 String endereco,
                 String telefone,
                 String descricao) {
