@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Principal - Mesa Fácil</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/modals.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/modals.css">
 </head>
+
 <body>
     <!-- Cabeçalho -->
     <header>
         <div class="containerHeader">
-            
+
             <h1>Mesa Fácil</h1>
             <nav class="menu">
                 <ul>
@@ -24,14 +26,14 @@
     <!-- Modal de Login -->
     <div id="loginModal" class="modal hidden">
         <div class="modal-content">
-            <span id="fecharLogin" class="close" >&times;</span>
+            <span id="fecharLogin" class="close">&times;</span>
             <h2>Login</h2>
             <form>
                 <label for="email">Email:</label>
                 <input type="email" id="email" placeholder="Digite seu email" required>
                 <label for="senha">Senha:</label>
                 <input type="password" id="senha" placeholder="Digite sua senha" required>
-                <button type="submit" >Entrar</button>
+                <button type="submit">Entrar</button>
                 <p>Não tem conta? <a id="cadastroBtn" href="#">Cadastre-se</a></p>
             </form>
         </div>
@@ -70,19 +72,21 @@
                     <div class="restaurante">
                         <h3>Restaurante A</h3>
                         <p>Culinária Brasileira</p>
-                        <a href="pages/reserva.html?restaurante=Restaurante%20A" class="btn-ver-detalhes">Ver detalhes</a>
+                        <a href="pages/reserva.html?restaurante=Restaurante%20A" class="btn-ver-detalhes">Ver
+                            detalhes</a>
                     </div>
                     <div class="restaurante">
                         <h3>Restaurante B</h3>
                         <p>Culinária Japonesa</p>
-                        <a href="pages/reserva.html?restaurante=Restaurante%20B" class="btn-ver-detalhes">Ver detalhes</a>
+                        <a href="pages/reserva.html?restaurante=Restaurante%20B" class="btn-ver-detalhes">Ver
+                            detalhes</a>
                     </div>
                     <!-- Mais restaurantes... -->
                 </div>
             </div>
         </section>
     </main>
-    
+
 
     <!-- Rodapé -->
     <footer>
@@ -94,4 +98,5 @@
     <script src="assets/js/modals.js"></script>
     <script src="assets/js/api/login.js"></script>
 </body>
+
 </html>
