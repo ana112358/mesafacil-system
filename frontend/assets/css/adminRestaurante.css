@@ -1,0 +1,46 @@
+/* Estilos básicos para o header */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #3C2D00; /* Cor de fundo do header */
+    color: #fff; /* Cor do texto */
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-left {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.header-right {
+    text-align: right;
+}
+
+#sairBtn {
+    background-color: #F05033; /* Cor do botão de sair */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+#sairBtn:hover {
+    background-color: #e4412b; /* Cor do botão de sair ao passar o mouse */
+}
