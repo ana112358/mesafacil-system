@@ -44,3 +44,72 @@ header {
 #sairBtn:hover {
     background-color: #e4412b; /* Cor do botão de sair ao passar o mouse */
 }
+
+#conteudoDadosRestaurante {
+    margin: 20px auto;
+    max-width: 900px; /* Maior largura para mais espaço, caso necessário */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#conteudoDadosRestaurante h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#conteudoDadosRestaurante form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+#conteudoDadosRestaurante label {
+    font-weight: bold;
+    color: #555;
+    display: block;
+    margin-bottom: 5px;
+}
+
+#conteudoDadosRestaurante input,
+#conteudoDadosRestaurante textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#conteudoDadosRestaurante textarea {
+    resize: none;
+    height: 80px;
+}
+
+#salvarBtn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#salvarBtn:hover {
+    background-color: #45a049;
+}

@@ -22,13 +22,58 @@
         </div>
     </header>
 
+    <main>
+        <!-- Conteúdo da página de administração -->
+        <div id="conteudoAdmin">
+           
+            <section id="conteudoDadosRestaurante">
+                <h2>Dados do Restaurante</h2>
+                <form id="formDadosRestaurante">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nome">Nome:</label>
+                            <input type="text" id="nome" name="nome" placeholder="Nome do Restaurante">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" placeholder="Email">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="endereco">Endereço:</label>
+                            <input type="text" id="endereco" name="endereco" placeholder="Endereço">
+                        </div>
+                        <div class="form-group">
+                            <label for="telefone">Telefone:</label>
+                            <input type="tel" id="telefone" name="telefone" placeholder="Telefone">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="senha">Senha:</label>
+                            <input type="password" id="senha" name="senha" placeholder="Senha">
+                        </div>
+                        <div class="form-group">
+                            <label for="descricao">Descrição:</label>
+                            <textarea id="descricao" name="descricao" placeholder="Descrição do Restaurante"></textarea>
+                        </div>
+                    </div>
+                    
+                    <button type="button" id="salvarBtn">Salvar Alterações</button>
+                </form>
+            </section>
+            
 
-    <!-- Conteúdo da página de administração -->
-    <div id="conteudoAdmin">
 
-    </div>
 
-    <script src="../assets/js/api/adminRestaurante.js"></script>
+        </div>
+    </main>
+    
+
+    <!--<script src="../assets/js/api/adminRestaurante.js"></script>-->
 </body>
 
 </html>
