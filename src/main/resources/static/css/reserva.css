@@ -22,7 +22,9 @@ label {
     color: #333;
 }
 
-input[type="number"], input[type="time"], select {
+input[type="number"],
+input[type="time"],
+select {
     width: 100%;
     padding: 0.8rem;
     margin: 0.5rem 0 1rem 0;
@@ -44,4 +46,16 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
     background-color: #c74328;
+}
+
+.reservaOcupada {
+    background-color: rgb(195, 195, 195);
+    margin: 2rem;
+    padding: 1rem;
+}
+
+.reservasOcupadas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }

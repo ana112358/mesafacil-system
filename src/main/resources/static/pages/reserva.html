@@ -13,7 +13,10 @@
     <div class="container">
         <h2>Solicitação de Reserva</h2>
         <p id="restauranteNome"></p> <!-- Exibe o nome do restaurante selecionado -->
+        <p>Reservas já ocupadas</p>
+        <div id="reservasOcupadas" class="reservasOcupadas">
 
+        </div>
         <form id="reservaForm">
             <label for="quantidadeCadeiras">Quantidade de cadeiras:</label>
             <input type="number" id="quantidadeCadeiras" name="quantidadeCadeiras" required>
@@ -25,7 +28,7 @@
         </form>
     </div>
 
-    <script src="../assets/js/reserva.js"> </script>
+    <script src="../js/api/reservas.js"> </script>
 </body>
 
 </html>
