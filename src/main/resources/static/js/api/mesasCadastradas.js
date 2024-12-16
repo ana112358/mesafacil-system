@@ -34,6 +34,7 @@ async function carregarMesas() {
             button.addEventListener('click', async (event) => {
                 const idMesa = event.target.dataset.id;
                 await deletarMesa(idMesa, event.target);
+                console.log("id da mesa:", idMesa)
             });
         });
 
@@ -58,6 +59,25 @@ function renderizarMesa(mesa, conteudoMesas) {
 
 async function deletarMesa(idMesa, botaoDeletar) {
     try {
+        // Verificar se a mesa tem reservas associadas
+        const reservasResponse = await fetch(`http://localhost:8080/reservas/mesa/${idMesa}`, {
+            method: 'GET'
+    
+        });
+
+        console.log(reservasResponse)
+        if (!reservasResponse.ok) {
+            throw new Error('Erro ao verificar reservas: ' + reservasResponse.statusText);
+        }
+
+        const reservas = await reservasResponse.json();
+
+        // Se houver reservas, não permitir a exclusão
+        if (reservas && reservas.length > 0) {
+            alert('Não é possível deletar a mesa, pois ela ainda possui reservas.');
+            return;  // Não prosseguir com a exclusão
+        }
+
         // Envia a requisição DELETE para o servidor
         const response = await fetch(`http://localhost:8080/mesas/${idMesa}`, {
             method: 'DELETE'
@@ -81,3 +101,4 @@ async function deletarMesa(idMesa, botaoDeletar) {
         alert('Erro ao deletar mesa: ' + error.message);
     }
 }
+
