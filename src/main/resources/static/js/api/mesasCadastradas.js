@@ -7,18 +7,18 @@ async function carregarMesas() {
             throw new Error('Nenhum restaurante logado.');
         }
 
-        const response = await fetch(`http://localhost:8080/mesas/${restauranteStage.id}`);
+        const response = await fetch(`http://localhost:8080/mesas/restaurante/${restauranteStage.id}`);
         if (!response.ok) {
             throw new Error('Erro ao buscar mesas: ' + response.statusText);
         }
 
         const mesa = await response.json();  // Agora é um único objeto mesa
-        console.log(mesa); // Veja a estrutura do objeto mesa para garantir que é o esperado.
+        console.log("mesas:",mesa); // Veja a estrutura do objeto mesa para garantir que é o esperado.
 
         // Limpar o conteúdo antes de renderizar
         const conteudoMesas = document.getElementById('conteudoMesasCadastradas');
         conteudoMesas.innerHTML = '';
-
+        console.log("mesas2:",mesa);
         // Verifique se a resposta é uma mesa única ou se é um array de mesas
         if (Array.isArray(mesa)) {
             mesa.forEach(m => {
