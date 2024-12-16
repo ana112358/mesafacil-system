@@ -2,6 +2,8 @@
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    align-items: center;    /* Centraliza os itens verticalmente */
 }
 
 .mesa-item {

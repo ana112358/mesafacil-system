@@ -12,27 +12,28 @@ async function carregarMesas() {
             throw new Error('Erro ao buscar mesas: ' + response.statusText);
         }
 
-        const mesa = await response.json();  // Agora é um único objeto mesa
-        console.log("mesas:",mesa); // Veja a estrutura do objeto mesa para garantir que é o esperado.
+        const mesas = await response.json();  // Agora deve retornar um array de mesas
+        console.log("mesas:", mesas); // Veja a estrutura do objeto mesas para garantir que é o esperado.
 
         // Limpar o conteúdo antes de renderizar
         const conteudoMesas = document.getElementById('conteudoMesasCadastradas');
         conteudoMesas.innerHTML = '';
-        console.log("mesas2:",mesa);
+        console.log("mesas2:", mesas);
+
         // Verifique se a resposta é uma mesa única ou se é um array de mesas
-        if (Array.isArray(mesa)) {
-            mesa.forEach(m => {
-                renderizarMesa(m, conteudoMesas);
+        if (Array.isArray(mesas)) {
+            mesas.forEach(mesa => {
+                renderizarMesa(mesa, conteudoMesas);
             });
         } else {
-            renderizarMesa(mesa, conteudoMesas);
+            renderizarMesa(mesas, conteudoMesas);
         }
 
         // Adicionar evento para os botões de deletar
         document.querySelectorAll('.deletar-btn').forEach(button => {
             button.addEventListener('click', async (event) => {
                 const idMesa = event.target.dataset.id;
-                await deletarMesa(idMesa);
+                await deletarMesa(idMesa, event.target);
             });
         });
 
@@ -44,6 +45,7 @@ async function carregarMesas() {
 function renderizarMesa(mesa, conteudoMesas) {
     const mesaDiv = document.createElement('div');
     mesaDiv.classList.add('mesa-item');
+    mesaDiv.id = `mesa-${mesa.id}`;  // Adiciona um ID único para cada mesa no DOM
 
     mesaDiv.innerHTML = `
         <p><strong>Número da Mesa:</strong> ${mesa.numeracao}</p>
@@ -52,4 +54,30 @@ function renderizarMesa(mesa, conteudoMesas) {
     `;
 
     conteudoMesas.appendChild(mesaDiv);
+}
+
+async function deletarMesa(idMesa, botaoDeletar) {
+    try {
+        // Envia a requisição DELETE para o servidor
+        const response = await fetch(`http://localhost:8080/mesas/${idMesa}`, {
+            method: 'DELETE'
+        });
+
+        if (!response.ok) {
+            throw new Error('Erro ao deletar mesa: ' + response.statusText);
+        }
+
+        // Se a exclusão for bem-sucedida, remove a mesa da interface
+        alert('Mesa deletada com sucesso!');
+
+        // Remover o elemento da mesa do DOM imediatamente
+        const mesaDiv = document.getElementById(`mesa-${idMesa}`);
+        if (mesaDiv) {
+            mesaDiv.remove();
+        }
+
+    } catch (error) {
+        console.error('Erro ao deletar mesa:', error);
+        alert('Erro ao deletar mesa: ' + error.message);
+    }
 }
