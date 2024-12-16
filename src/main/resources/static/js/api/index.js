@@ -17,12 +17,16 @@ async function carregarRestaurantes() {
                     <h3 class="nome">${restaurante.nome}</h3>
                     <p class="descricao">${restaurante.descricao}</p>
                 </div>
-                <div>
+                <div class="informacoes">
+                    <p class="telefone">
+                        <ion-icon name="call"></ion-icon>
+                        ${restaurante.telefone}
+                    </p>
                     <p class="endereco">
                         <ion-icon name="location-sharp"></ion-icon>
                         ${restaurante.endereco}
                     </p>
-                    <a href="#" class="btn-detalhes">Ver detalhes</a>
+                    <a href="/pages/restaurante.html?restaurante=${restaurante.id}" class="btn-detalhes">Ver detalhes</a>
                 </div>
             `;
             restaurante_lista.appendChild(restaurante_card);
