@@ -8,8 +8,10 @@
     --color-black: #000000;
     --color-light-gray: #e3e3e3;
     --color-white: #ffffff;
-    --color-primary: #F05033; /* laranja */
-    --color-primary-hover: #c74328; /* laranja mais escuro */
+    --color-primary: #F05033;
+    /* laranja */
+    --color-primary-hover: #c74328;
+    /* laranja mais escuro */
     --color-secondary: #3d3d3d;
 }
 
@@ -69,7 +71,7 @@ body {
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-.reservasInfo p{
+.reservasInfo p {
     text-align: center;
 }
 
@@ -92,11 +94,13 @@ body {
 
 .botoes-mesa {
     display: flex;
-    gap: 10px; /* Espaçamento entre os botões */
+    gap: 10px;
+    /* Espaçamento entre os botões */
     margin-top: 10px;
 }
 
-.btn-ver-reservas, .btn-reservar {
+.btn-ver-reservas,
+.btn-reservar {
     padding: 5px 10px;
     text-decoration: none;
     border: none;
@@ -115,6 +119,7 @@ body {
     color: var(--color-white);
 }
 
-.btn-ver-reservas:hover, .btn-reservar:hover {
+.btn-ver-reservas:hover,
+.btn-reservar:hover {
     opacity: 0.9;
 }

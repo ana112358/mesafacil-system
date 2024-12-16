@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/adminRestaurante.css">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/mesaCadastrada.css">
+    <link rel="stylesheet" href="../css/restaurante.css">
 </head>
 
 <body>
@@ -30,7 +31,7 @@
     <main>
         <!-- Conteúdo da página de administração -->
         <div id="conteudoAdmin">
-           
+
             <section id="conteudoDadosRestaurante">
                 <h2>Dados do Restaurante</h2>
                 <form id="formDadosRestaurante">
@@ -44,7 +45,7 @@
                             <input type="email" id="email" name="email" placeholder="Email">
                         </div>
                     </div>
-                    
+
                     <div class="form-row">
                         <div class="form-group">
                             <label for="endereco">Endereço:</label>
@@ -55,7 +56,7 @@
                             <input type="tel" id="telefone" name="telefone" placeholder="Telefone">
                         </div>
                     </div>
-                    
+
                     <div class="form-row">
                         <div class="form-group">
                             <label for="senha">Senha:</label>
@@ -66,7 +67,7 @@
                             <textarea id="descricao" name="descricao" placeholder="Descrição do Restaurante"></textarea>
                         </div>
                     </div>
-                    
+
                     <button type="button" id="salvarBtn">Salvar Alterações</button>
                 </form>
             </section>
@@ -78,14 +79,16 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label for="numeroMesa">Número da Mesa:</label>
-                            <input type="number" id="numeroMesa" name="numeroMesa" placeholder="Número da Mesa" required>
+                            <input type="number" id="numeroMesa" name="numeroMesa" placeholder="Número da Mesa"
+                                required>
                         </div>
                         <div class="form-group">
                             <label for="quantidadePessoas">Quantidade de Pessoas:</label>
-                            <input type="number" id="quantidadePessoas" name="quantidadePessoas" placeholder="Quantidade de Pessoas" required min="1">
+                            <input type="number" id="quantidadePessoas" name="quantidadePessoas"
+                                placeholder="Quantidade de Pessoas" required min="1">
                         </div>
                     </div>
-            
+
                     <button type="button" id="salvarMesaBtn">Salvar Mesa</button>
                 </form>
             </section>
@@ -93,16 +96,20 @@
             <section id="conteudoMesasCadastradas">
 
             </section>
-            
-            
+
+            <section id="reservasMesa">
+
+            </section>
+
+
 
         </div>
     </main>
-    
+
 
     <script src="../js/api/adminRestaurante.js"></script>
-    <script src="../js/api/cadastroMesas.js" ></script>
-    <script src="../js/api/mesasCadastradas.js" ></script>
+    <script src="../js/api/cadastroMesas.js"></script>
+    <script src="../js/api/mesasCadastradas.js"></script>
 </body>
 
 </html>

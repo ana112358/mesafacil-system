@@ -60,6 +60,7 @@ function adicionarMesaNaInterface(mesa) {
         <p><strong>Número da Mesa:</strong> ${mesa.numeracao}</p>
         <p><strong>Quantidade de Cadeiras:</strong> ${mesa.quantidade_cadeiras}</p>
         <button class="deletar-btn" data-id="${mesa.id}">Deletar</button>
+        <button class="btn-ver-reservas" data-id="${mesa.id}">Ver Reservas</button>
     `;
 
     // Adiciona a nova mesa à lista de mesas na interface
@@ -75,7 +76,7 @@ function adicionarMesaNaInterface(mesa) {
 }
 
 // Evento para o botão de salvar a nova mesa
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Recupera os dados do restaurante do localStorage
     const restaurante = JSON.parse(localStorage.getItem('restaurante'));
 

@@ -34,7 +34,32 @@ async function carregarMesas() {
             button.addEventListener('click', async (event) => {
                 const idMesa = event.target.dataset.id;
                 await deletarMesa(idMesa, event.target);
-                console.log("id da mesa:", idMesa)
+                document.getElementById("reservasMesa").innerHTML = "";
+            });
+        });
+
+        document.querySelectorAll('.btn-ver-reservas').forEach(button => {
+            button.addEventListener('click', async (event) => {
+                const idMesa = event.target.dataset.id;
+                const divReservas = document.getElementById("reservasMesa");
+                const reservas = await getReservasByMesa(idMesa);
+
+                if (!reservas || reservas.length === 0) {
+                    divReservas.innerHTML = "<p>Não há reservas para esta mesa.</p>";
+                } else {
+                    renderReservasHTML(reservas, divReservas);
+                }
+
+                setTimeout(() => {
+
+                    document.querySelectorAll('.delete-reserva').forEach(button => {
+                        button.addEventListener('click', async (event) => {
+                            const idReserva = event.target.dataset.id;
+                            await deletarReserva(idReserva);
+                        });
+                    })
+
+                }, 500);
             });
         });
 
@@ -52,9 +77,70 @@ function renderizarMesa(mesa, conteudoMesas) {
         <p><strong>Número da Mesa:</strong> ${mesa.numeracao}</p>
         <p><strong>Quantidade de Cadeiras:</strong> ${mesa.quantidade_cadeiras}</p>
         <button class="deletar-btn" data-id="${mesa.id}">Deletar</button>
+        <button class="btn-ver-reservas" data-id="${mesa.id}">Ver Reservas</button>
     `;
 
     conteudoMesas.appendChild(mesaDiv);
+}
+
+function renderReservasHTML(reservas, divReservas) {
+    divReservas.innerHTML = "";
+
+    reservas.forEach(reserva => {
+        const horario_inicio = new Date(reserva.horario_inicio).toLocaleTimeString();
+        const horario_final = new Date(reserva.horario_final).toLocaleTimeString();
+
+        let appendHTML = `
+            <div id="reserva-${reserva.id}" class="reservaOcupada">
+                <p class="horario">Horário inicio: ${horario_inicio}</p>|
+                <p class="horario">Horário final:  ${horario_final}</p>|
+                <p class="ocupado">Ocupado por: ${reserva.nome_cliente}</p>
+                <button class="delete-reserva" data-id="${reserva.id}">Deletar</button>
+            </div>
+        `;
+
+        divReservas.innerHTML = divReservas.innerHTML + appendHTML;
+    });
+}
+
+async function getReservasByMesa(idMesa) {
+    const url = "http://localhost:8080/reservas/mesa/" + idMesa;
+
+    try {
+        const response = await fetch(url);
+        const json = await response.json();
+
+        return json;
+
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
+async function deletarReserva(idReserva) {
+    try {
+        // Envia a requisição DELETE para o servidor
+        const response = await fetch(`http://localhost:8080/reservas/${idReserva}`, {
+            method: 'DELETE'
+        });
+
+        if (!response.ok) {
+            throw new Error('Erro ao deletar reserva: ' + response.statusText);
+        }
+
+        // Se a exclusão for bem-sucedida, remove a mesa da interface
+        alert('Reseva deletada com sucesso!');
+
+        // Remover o elemento da mesa do DOM imediatamente
+        const reservaDiv = document.getElementById(`reserva-${idReserva}`);
+        if (reservaDiv) {
+            reservaDiv.remove();
+        }
+
+    } catch (error) {
+        console.error('Erro ao deletar mesa:', error);
+        alert('Erro ao deletar mesa: ' + error.message);
+    }
 }
 
 async function deletarMesa(idMesa, botaoDeletar) {
@@ -62,7 +148,7 @@ async function deletarMesa(idMesa, botaoDeletar) {
         // Verificar se a mesa tem reservas associadas
         const reservasResponse = await fetch(`http://localhost:8080/reservas/mesa/${idMesa}`, {
             method: 'GET'
-    
+
         });
 
         console.log(reservasResponse)
