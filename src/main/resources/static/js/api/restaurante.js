@@ -1,6 +1,7 @@
 (async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const idRestaurante = urlParams.get('restaurante');
+    const idMesa = urlParams.get('mesa');
 
     if (!idRestaurante)
         return;
@@ -11,7 +12,11 @@
     let mesas = await getMesasByRestaurante(idRestaurante);
     let divMesas = document.getElementById("mesasRestaurante");
 
-    renderMesasHTML(mesas, divMesas);
+    renderMesasHTML(mesas, divMesas, idRestaurante);
+
+    if (idMesa) {
+        handleRenderReservasByMesaId(idMesa);
+    }
 })();
 
 async function getRestauranteById(idRestaurante) {
@@ -58,14 +63,6 @@ async function getReservasByMesa(idMesa) {
     }
 }
 
-// function addEventListeners(divMesas) {
-//     for (const child of divMesas.children) {
-//         child.addEventListener("click", e => {
-//             handleRenderReservasByMesaId(getId(e.currentTarget.id));
-//         })
-//     }
-// }
-
 async function handleRenderReservasByMesaId(idMesa) {
     let divReservas = document.getElementById("reservasInfo");
     const reservas = await getReservasByMesa(idMesa);
@@ -76,7 +73,7 @@ async function handleRenderReservasByMesaId(idMesa) {
     }
 }
 
-function renderMesasHTML(mesas, divMesas) {
+function renderMesasHTML(mesas, divMesas, idRestaurante) {
     divMesas.innerHTML = "";
     mesas.forEach(mesa => {
         let appendHTML = `
@@ -85,7 +82,7 @@ function renderMesasHTML(mesas, divMesas) {
                 <p>Quantidade de Cadeiras: ${mesa.quantidade_cadeiras}</p>
                 <div class="botoes-mesa">
                     <button class="btn-ver-reservas" data-id="${mesa.id}">Ver Reservas</button>
-                    <a href="reserva.html?mesa=${mesa.id}" class="btn-reservar">Fazer Reserva</a>
+                    <a href="reserva.html?mesa=${mesa.id}&restaurante=${idRestaurante}" class="btn-reservar">Fazer Reserva</a>
                 </div>
             </div>
         `;

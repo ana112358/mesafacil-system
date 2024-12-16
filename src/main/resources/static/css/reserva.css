@@ -1,61 +1,88 @@
-/* --- Estilos Específicos para a página de reserva --- */
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-/* Formulário de reserva */
-form {
-    background-color: #fff;
-    padding: 2rem;
+:root {
+    --color-black: #000000;
+    --color-light-gray: #e3e3e3;
+    --color-white: #ffffff;
+    --color-primary: #F05033; /* laranja */
+    --color-primary-hover: #c74328; /* laranja mais escuro */
+    --color-secondary: #3d3d3d;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--color-light-gray);
+    color: var(--color-secondary);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: var(--color-white);
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
-form h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    color: #3C2D00;
+.container h1 {
+    color: var(--color-primary);
 }
 
-label {
-    display: block;
+#reservaForm {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+}
+
+#reservaForm label {
+    font-weight: bold;
+    color: var(--color-secondary);
+}
+
+#reservaForm input {
+    padding: 10px;
     font-size: 1rem;
-    margin: 0.5rem 0;
-    color: #333;
+    border: 1px solid var(--color-light-gray);
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
 }
 
-input[type="number"],
-input[type="time"],
-select {
-    width: 100%;
-    padding: 0.8rem;
-    margin: 0.5rem 0 1rem 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+#reservaForm input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 5px rgba(240, 80, 51, 0.5);
+}
+
+#reservaForm .btn-enviar {
+    width: auto;
+    margin: 0 auto;
+    padding: 10px;
     font-size: 1rem;
-}
-
-button[type="submit"] {
-    background-color: #F05033;
-    color: white;
-    padding: 1rem;
+    font-weight: bold;
+    color: var(--color-white);
+    background-color: var(--color-primary);
     border: none;
-    border-radius: 5px;
-    font-size: 1.2rem;
+    border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-button[type="submit"]:hover {
-    background-color: #c74328;
+#reservaForm .btn-enviar:hover {
+    background-color: var(--color-primary-hover);
 }
 
-.reservaOcupada {
-    background-color: rgb(195, 195, 195);
-    margin: 2rem;
-    padding: 1rem;
-}
-
-.reservasOcupadas {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+@media (max-width: 600px) {
+    .container {
+        margin: 20px;
+        padding: 15px;
+    }
 }

@@ -1,34 +1,33 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reserva de Restaurante</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <title>Fazer Reserva</title>
     <link rel="stylesheet" href="../css/reserva.css">
 </head>
-
 <body>
-    <div class="container">
-        <h2>Solicitação de Reserva</h2>
-        <p id="restauranteNome"></p> <!-- Exibe o nome do restaurante selecionado -->
-        <p>Reservas já ocupadas</p>
-        <div id="reservasOcupadas" class="reservasOcupadas">
-
-        </div>
+    <div class="container"> 
+        <h1>Fazer Reserva</h1>
+        <h2 id="numeroMesa">mesa 2</h2>
         <form id="reservaForm">
-            <label for="quantidadeCadeiras">Quantidade de cadeiras:</label>
-            <input type="number" id="quantidadeCadeiras" name="quantidadeCadeiras" required>
-
-            <label for="horario">Horário da reserva:</label>
-            <input type="time" id="horario" name="horario" required>
-
-            <button type="submit">Buscar Reservas Disponíveis</button>
+            <div>
+                <label for="nomeCliente">Nome do Cliente:</label>
+                <input type="text" id="nomeCliente" name="nomeCliente" placeholder="Seu nome" required>
+            </div>
+            <div>
+                <label for="horarioInicio">Horário de Início:</label>
+                <input type="datetime-local" id="horarioInicio" name="horarioInicio" required>
+            </div>
+            <div>
+                <label for="horarioFinal">Horário Final:</label>
+                <input type="datetime-local" id="horarioFinal" name="horarioFinal" required>
+            </div>
+            <button type="submit" class="btn-enviar">Enviar Reserva</button>
         </form>
+        <p id="mensagem"></p>
     </div>
 
-    <script src="../js/api/reservas.js"> </script>
+    <script src="../js/api/reservas.js"></script>
 </body>
-
 </html>
