@@ -92,30 +92,40 @@ main h1 {
 
 #restaurantes-lista {
     display: grid;
-    grid-template-columns: repeat(3, 300px);
+    grid-template-columns: repeat(2, 500px);
     gap: 50px;
 }
 
 .restaurante-card {
     background-color: #fff;
-    width: 300px;
+    width: 500px;
     padding: 30px;
     border-radius: 10px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     font-size: medium;
-    line-height: 1.4;
     text-align: justify;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.restaurante-card .endereco{
+.restaurante-card .informacoes{
+    margin-top: 30px;
+}
+
+.restaurante-card .informacoes p{
     display: flex;
     align-items: center;
     gap: 5px;
-    margin: 30px 0 15px 0;
 }
 
-.restaurante-card .endereco ion-icon{
-    font-size: 2rem;
+.restaurante-card .informacoes .endereco{
+    margin: 5px 0 15px;
+}
+
+.restaurante-card .informacoes ion-icon{
+    font-size: 25px;   /* Tamanho fixo do ícone */
+    flex-shrink: 0;    /* Impede o ícone de encolher */
 }
 
 .restaurante-card .btn-detalhes{
