@@ -8,8 +8,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
-import com.projetolp2.mesafacil.models.Mesa;
 import com.projetolp2.mesafacil.models.Reserva;
 import com.projetolp2.mesafacil.models.Reserva.UpdateReserva;
 import com.projetolp2.mesafacil.models.Reserva.CreateReserva;

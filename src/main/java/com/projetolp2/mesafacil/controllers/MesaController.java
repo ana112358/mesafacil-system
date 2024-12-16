@@ -3,14 +3,11 @@ package com.projetolp2.mesafacil.controllers;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
 import com.projetolp2.mesafacil.models.Mesa;
 import com.projetolp2.mesafacil.models.Mesa.CreateMesa;
 import com.projetolp2.mesafacil.models.Mesa.UpdateMesa;
 import com.projetolp2.mesafacil.services.MesaService;
-
 import jakarta.validation.Valid;
-
 import java.util.List;
 
 @RestController

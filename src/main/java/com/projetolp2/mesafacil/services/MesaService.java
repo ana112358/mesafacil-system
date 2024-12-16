@@ -2,11 +2,8 @@ package com.projetolp2.mesafacil.services;
 
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.stereotype.Service;
-
 import com.projetolp2.mesafacil.models.Mesa;
-import com.projetolp2.mesafacil.models.Restaurante;
 import com.projetolp2.mesafacil.repositories.MesaRepository;
 
 @Service

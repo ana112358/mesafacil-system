@@ -2,10 +2,8 @@ package com.projetolp2.mesafacil.services;
 
 import com.projetolp2.mesafacil.models.Restaurante;
 import com.projetolp2.mesafacil.repositories.RestauranteRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 
