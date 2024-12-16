@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
             
             // Convertendo a resposta para JSON
             const restaurantes = await response.json();
-            console.log('Restaurantes recebidos:', restaurantes);  // Logar todos os restaurantes para análise
+
     
             // Normalizando o email e senha para comparar sem problemas de maiúsculas/minúsculas ou espaços
             const emailNormalizado = email.trim().toLowerCase();  // Remover espaços e transformar para minúsculo

@@ -19,7 +19,7 @@ async function criarMesa(restaurante) {
             restaurante : restaurante
         };
 
-        console.log("mesa:",mesa)
+        
 
         // Envia a requisição para criar a mesa
         const response = await fetch('http://localhost:8080/mesas', {
@@ -29,7 +29,7 @@ async function criarMesa(restaurante) {
             },
             body: JSON.stringify(mesa)
         });
-        console.log("response is: ", response)
+       
 
         // Verifica se a resposta foi bem-sucedida
         if (!response.ok) {
@@ -43,7 +43,7 @@ async function criarMesa(restaurante) {
         alert('Mesa criada com sucesso!');
 
         // Exibe a resposta da criação da mesa (opcional)
-        console.log('Mesa criada:', data);
+        
         
         // Opcional: Você pode atualizar a interface ou redirecionar o usuário conforme necessário
     } catch (error) {
