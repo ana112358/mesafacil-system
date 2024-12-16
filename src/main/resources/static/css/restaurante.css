@@ -1,62 +1,120 @@
-/* --- Estilos Específicos para a página de reserva --- */
-
-/* Formulário de reserva */
-form {
-    background-color: #fff;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 2rem;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-form h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    color: #3C2D00;
+:root {
+    --color-black: #000000;
+    --color-light-gray: #e3e3e3;
+    --color-white: #ffffff;
+    --color-primary: #F05033; /* laranja */
+    --color-primary-hover: #c74328; /* laranja mais escuro */
+    --color-secondary: #3d3d3d;
 }
 
-label {
-    display: block;
-    font-size: 1rem;
-    margin: 0.5rem 0;
-    color: #333;
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: var(--color-light-gray);
+    color: var(--color-secondary);
 }
 
-input[type="number"],
-input[type="time"],
-select {
-    width: 100%;
-    padding: 0.8rem;
-    margin: 0.5rem 0 1rem 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
+.container {
+    width: 70%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-button[type="submit"] {
-    background-color: #F05033;
-    color: white;
-    padding: 1rem;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.container h1 {
+    text-align: center;
+    color: var(--color-primary);
+    margin-bottom: 20px;
 }
 
-button[type="submit"]:hover {
-    background-color: #c74328;
-}
-
-.mesaRestaurante {
-    background-color: rgb(195, 195, 195);
-    margin: 2rem;
-    padding: 1rem;
-    cursor: pointer;
+.container h2 {
+    text-align: center;
 }
 
 .mesasRestaurante {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.mesaRestaurante {
+    background-color: var(--color-white);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    text-align: center;
+}
+
+.mesaRestaurante p {
+    margin: 10px 0;
+}
+
+.mesaRestaurante p:first-child {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.reservasInfo {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: var(--color-white);
+    border-radius: 10px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.reservasInfo p{
+    text-align: center;
+}
+
+.reservaOcupada {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--color-light-gray);
+}
+
+.reservaOcupada p {
+    margin: 0;
+}
+
+.reservaOcupada .horario {
+    font-weight: bold;
+}
+
+.botoes-mesa {
+    display: flex;
+    gap: 10px; /* Espaçamento entre os botões */
+    margin-top: 10px;
+}
+
+.btn-ver-reservas, .btn-reservar {
+    padding: 5px 10px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-ver-reservas {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+}
+
+.btn-reservar {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.btn-ver-reservas:hover, .btn-reservar:hover {
+    opacity: 0.9;
 }

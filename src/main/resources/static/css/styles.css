@@ -5,19 +5,33 @@
     box-sizing: border-box;
 }
 
+:root {
+    --color-black: #000000;
+    --color-light-gray: #e3e3e3;
+    --color-white: #ffffff;
+    --color-primary: #F05033; /* laranja */
+    --color-primary-hover: #c74328; /* laranja mais escuro */
+    --color-secondary: #3d3d3d;
+}
+
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4; /* Fundo claro */
-    color: #333; /* Texto escuro */
+    background-color: var(--color-light-gray); /* Fundo claro */
+    color: var(--color-black); /* Texto escuro */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-/* Container centralizado */
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
+main{
+    flex: 1;
 }
+
+body.no-scroll {
+    overflow-y: hidden;
+}
+
 .containerHeader{
     width: 90%;
     max-width: 1200px;
@@ -29,8 +43,8 @@ body {
 
 /* Cabeçalho */
 header {
-    background-color: #3d3d3d;
-    color: #fff;
+    background-color: var(--color-secondary);
+    color: var(--color-white);
     padding: 1rem 0;
 }
 
@@ -55,7 +69,7 @@ header .menu ul li {
 
 header .menu ul li a,
 header .menu ul li button {
-    color: #fff;
+    color: var(--color-white);
     text-decoration: none;
     background: none;
     border: none;
@@ -64,25 +78,22 @@ header .menu ul li button {
 }
 
 header .menu ul li button.btn-login {
-    background-color: #F05033;
+    background-color: var(--color-primary);
     padding: 0.5rem 1rem;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
+    transition: 0.2s ease;
 }
 
 header .menu ul li button.btn-login:hover {
-    background-color: #c74328;
+    background-color: var(--color-primary-hover);
 }
 
 /* Seção de Restaurantes */
-main {
-    padding: 2rem 0;
-}
-
-main h1 {
+#parceiros h1 {
     text-align: center;
-    color: #3d3d3d;
-    margin-bottom: 2rem;
+    color: var(--color-black);
+    margin: 2rem 0;
+    font-size: 2rem;
 }
 
 .container{
@@ -97,7 +108,7 @@ main h1 {
 }
 
 .restaurante-card {
-    background-color: #fff;
+    background-color: var(--color-white);
     width: 500px;
     padding: 30px;
     border-radius: 10px;
@@ -124,37 +135,31 @@ main h1 {
 }
 
 .restaurante-card .informacoes ion-icon{
-    font-size: 25px;   /* Tamanho fixo do ícone */
-    flex-shrink: 0;    /* Impede o ícone de encolher */
+    font-size: 25px;
+    flex-shrink: 0;
 }
 
 .restaurante-card .btn-detalhes{
-    color: #fff;
+    color: var(--color-white);
     text-decoration: none;
     padding: 10px;
     cursor: pointer;
     border-radius: 10px;
-    background-color: #F05033;
+    background-color: var(--color-primary);
 }
 
 .restaurante-card .btn-detalhes:hover{
-    background-color: #c74328;
+    background-color: var(--color-primary-hover);
 }
-
-
 
 /* Rodapé */
 footer {
     text-align: center;
-    background-color: #3d3d3d;
-    color: #fff;
-    padding: 1rem 0;
-    margin-top: 2rem;
-}
-
-/* Botões globais */
-button {
-    cursor: pointer;
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    width: 100%;
+    padding: 10px;
+    margin-top: 100px;
 }
 
 /* Responsividade */
@@ -166,28 +171,97 @@ button {
     }
 }
 
-/* Modais inicialmente ocultos */
 .modal {
-    display: none; /* Modais começam ocultos */
+    display: none;
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    max-width: 400px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-}
-
-/* Fundo escuro para os modais */
-.modal-backdrop {
-    position: fixed;
-    top: 0;
+    z-index: 1;
     left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 999;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: var(--color-white);
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid var(--color-light-gray);
+    width: 80%;
+    width: 500px;
+    border-radius: 8px;
+}
+
+.modal-content .close {
+    color: var(--color-light-gray);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.modal-content .close:hover,
+.modal-content .close:focus {
+    color: var(--color-black);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.modal-content form input, .modal-content form textarea {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--color-light-gray);
+    border-radius: 4px;
+}
+
+.modal-content form textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+.modal-content form button {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.modal-content form button:hover {
+    background-color: var(--color-primary-hover);
+}
+
+.modal-content p {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.modal-content #cadastroBtn {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.modal-content #cadastroBtn:hover {
+    text-decoration: underline;
+}
+
+.hidden {
+    display: none;
 }

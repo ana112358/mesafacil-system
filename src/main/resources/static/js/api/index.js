@@ -49,10 +49,12 @@ const btnFecharCadastro = document.getElementById('fecharCadastro');  // Fechar 
 // Funções para abrir e fechar os modais
 function abrirModal(modal) {
     modal.style.display = 'block'; // Torna o modal visível
+    document.body.classList.add('no-scroll'); // Desativa a rolagem lateral
 }
 
 function fecharModal(modal) {
     modal.style.display = 'none'; // Torna o modal invisível
+    document.body.classList.remove('no-scroll'); // Restaura a rolagem lateral
 }
 
 // Eventos para abrir e fechar o modal de login
