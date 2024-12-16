@@ -8,6 +8,8 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import com.projetolp2.mesafacil.models.Mesa;
 import com.projetolp2.mesafacil.models.Reserva;
 import com.projetolp2.mesafacil.models.Reserva.UpdateReserva;
 import com.projetolp2.mesafacil.models.Reserva.CreateReserva;
@@ -37,6 +39,11 @@ public class ReservaController {
     public ResponseEntity<Reserva> findById(@PathVariable Integer id) {
         Reserva obj = this.reservaService.findById(id);
         return ResponseEntity.ok().body(obj);
+    }
+
+    @GetMapping("/mesa/{id}")
+    public List<Reserva> getReservasByMesaId(@PathVariable Integer id) {
+        return reservaService.getReservasByMesaId(id);
     }
 
     @PostMapping
