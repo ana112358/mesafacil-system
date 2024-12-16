@@ -34,6 +34,11 @@ public class MesaController {
         return ResponseEntity.ok().body(obj);
     }
 
+    @GetMapping("/restaurante/{id}")
+    public List<Mesa> getMesasByRestauranteId(@PathVariable Integer id) {
+        return mesaService.getMesasByRestauranteId(id);
+    }
+
     @PostMapping
     @Validated(CreateMesa.class)
     public Mesa createMesa(@Valid @RequestBody Mesa mesa) {
