@@ -29,7 +29,7 @@ body {
 
 /* Cabeçalho */
 header {
-    background-color: #3C2D00;
+    background-color: #3d3d3d;
     color: #fff;
     padding: 1rem 0;
 }
@@ -79,56 +79,64 @@ main {
     padding: 2rem 0;
 }
 
-main h2 {
+main h1 {
     text-align: center;
-    color: #3C2D00;
+    color: #3d3d3d;
     margin-bottom: 2rem;
 }
 
-.restaurantes-lista {
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+#restaurantes-lista {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(3, 300px);
+    gap: 50px;
 }
 
-.restaurante {
+.restaurante-card {
     background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 1rem;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    font-size: medium;
+    line-height: 1.4;
+    text-align: justify;
 }
 
-.restaurante h3 {
-    margin-bottom: 0.5rem;
-    color: #F05033;
+.restaurante-card .endereco{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 30px 0 15px 0;
 }
 
-.restaurante p {
-    margin-bottom: 1rem;
-    font-size: 0.9rem;
-    color: #666;
+.restaurante-card .endereco ion-icon{
+    font-size: 2rem;
 }
 
-.restaurante .btn-ver-detalhes {
-    background-color: #3C2D00;
+.restaurante-card .btn-detalhes{
     color: #fff;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
+    text-decoration: none;
+    padding: 10px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    border-radius: 10px;
+    background-color: #F05033;
 }
 
-.restaurante .btn-ver-detalhes:hover {
-    background-color: #5a4101;
+.restaurante-card .btn-detalhes:hover{
+    background-color: #c74328;
 }
+
+
 
 /* Rodapé */
 footer {
     text-align: center;
-    background-color: #3C2D00;
+    background-color: #3d3d3d;
     color: #fff;
     padding: 1rem 0;
     margin-top: 2rem;
